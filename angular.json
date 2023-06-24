@@ -30,6 +30,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "src/material-custom-theme.scss"
+              },
               "src/styles.scss"
             ],
             "scripts": []
