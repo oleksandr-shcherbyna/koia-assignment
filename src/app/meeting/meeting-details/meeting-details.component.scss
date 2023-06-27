@@ -1,0 +1,84 @@
+@import '../../../assets/scss/variable';
+@import '../../../assets/scss/mixins';
+
+.meeting-details-wrapper {
+    margin: auto;
+}
+.clear-icon {
+    right: -1%;
+    @include input-icon;
+}
+.clear-icon:hover {
+    color: $black;
+}
+.long-form-field, .agenda-container, .documents-container {
+    width: 65%;
+}
+.separator-symbol {
+    font-weight: 500;
+}
+.time-error {
+    white-space: nowrap;
+}
+.disable-checkbox {
+    pointer-events: none;
+}
+.agenda-container {
+    border-radius: 10px;
+    border: 1px solid $black;
+}
+.button-custom-border {
+    border: 1px solid black;
+}
+.document-wrapper {
+    background: $document-container;
+    border-radius: 3px;
+}
+
+::ng-deep {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background: $white;
+    }
+    .small-density-form-field {
+        .mdc-text-field--outlined {
+            height: 43px !important;
+        }
+        .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+            padding: 10px 0;
+        }
+    }
+    .medium-density-form-field {
+        .mdc-text-field--outlined, .time-seperator {
+            height: 50px !important;
+        }
+        .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix, .time-seperator {
+            padding: 14px 0;
+        }
+    }
+    .date-picker-toggle-container {
+        .mat-mdc-form-field-icon-suffix {
+            position: absolute;
+            top: 1%;
+            right: 2%;
+        }
+    }
+    .time-container {
+        .mat-mdc-form-field-error-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .form-field-width-fit {
+        .mat-mdc-form-field-infix {
+            width: fit-content;
+        }
+    }
+    .location-checkbox {
+        .mdc-checkbox {
+            transform: scale(1.1);
+        }
+    }
+    .mat-mdc-form-field-error {
+        font-size: 13px;
+    }
+}

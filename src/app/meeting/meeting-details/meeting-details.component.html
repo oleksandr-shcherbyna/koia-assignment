@@ -1,0 +1,135 @@
+<div class="p-5 w-75 meeting-details-wrapper">
+    <h4 class="mb-5">New meeting</h4>
+    <form [formGroup]="meetingFormGroup">
+        <div class="mb-5">
+            <h5 class="mb-3">Meeting type</h5>
+            <div class="d-flex">
+                <div *ngFor="let meetingType of meetingTypes">
+                    <button 
+                        *ngIf="meetingType === selectedMeetingType" 
+                        class="me-3" 
+                        mat-raised-button color="primary" 
+                        (click)="changeMeetingType($event, meetingType)">{{meetingType}}</button>
+                    <button 
+                        *ngIf="meetingType !== selectedMeetingType" 
+                        class="me-3" mat-raised-button 
+                        (click)="changeMeetingType($event, meetingType)">{{meetingType}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4 small-density-form-field">
+            <h5 class="mb-3">Meeting name</h5>
+            <mat-form-field class="long-form-field" appearance="outline">
+                <input type="text" matInput formControlName="meetingName" placeholder="Meeting name" class="pe-5">
+                <mat-icon class="position-absolute clear-icon" (click)="clearFieldByClick($event, 'meetingName')">close</mat-icon>
+                <mat-error *ngIf="meetingFormGroup.get('meetingName')!.invalid && meetingFormGroup.get('meetingName')!.touched">
+                    <span *ngIf="meetingFormGroup.get('meetingName')!.hasError('required')">Field is required</span>
+                    <span *ngIf="meetingFormGroup.get('meetingName')!.hasError('minlength')">Meeting name is too short</span>
+                    <span *ngIf="meetingFormGroup.get('meetingName')!.hasError('maxlength')">Meeting name is too long</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-4 medium-density-form-field date-picker-toggle-container">
+            <h5 class="mb-3">Date and time</h5>
+            <div class="d-flex">
+                <mat-form-field appearance="outline" class="me-4">
+                    <input type="" matInput [matDatepicker]="meetingDate" formControlName="meetingDate" placeholder="Choose a date" class="pe-5">
+                    <mat-datepicker-toggle matIconSuffix [for]="meetingDate"></mat-datepicker-toggle>
+                    <mat-datepicker #meetingDate></mat-datepicker>
+                    <mat-error *ngIf="meetingFormGroup.get('meetingDate')!.invalid && meetingFormGroup.get('meetingDate')!.touched">
+                        <span *ngIf="meetingFormGroup.get('meetingDate')!.hasError('dateNotPicked')">Pick meeting date</span>
+                        <span *ngIf="meetingFormGroup.get('meetingDate')!.hasError('incorrectMeetingDate')">Select future date</span>
+                    </mat-error>
+                </mat-form-field>
+                <div class="d-flex flex-column">
+                    <div class="d-flex time-container">
+                        <mat-form-field appearance="outline" class="form-field-width-fit">
+                            <input type="time" matInput formControlName="meetingStartTime" class="text-center">
+                            <mat-error 
+                                class="time-error"  
+                                *ngIf="(meetingFormGroup.get('meetingStartTime')!.invalid && meetingFormGroup.get('meetingStartTime')!.touched)">
+                                <span *ngIf="meetingFormGroup.get('meetingStartTime')!.hasError('required')">Invalid time</span>
+                            </mat-error>
+                        </mat-form-field>
+        
+                        <div class="mx-2 d-flex align-items-center time-seperator"><p class="m-0 text-bold separator-symbol">–</p></div>
+        
+                        <mat-form-field appearance="outline" class="form-field-width-fit">
+                            <input type="time" matInput formControlName="meetingEndTime" class="text-center">
+                            <mat-error 
+                                class="time-error"  
+                                *ngIf="(meetingFormGroup.get('meetingEndTime')!.invalid && meetingFormGroup.get('meetingEndTime')!.touched)">
+                                <span *ngIf="meetingFormGroup.get('meetingEndTime')!.hasError('required')">Invalid time</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4 small-density-form-field" formGroupName="meetingLocationType">
+            <h5 class="mb-3">Location</h5>
+            <div class="d-flex flex-column">
+                <mat-checkbox 
+                    class="location-checkbox mb-2" 
+                    color="primary"
+                    #adress 
+                    [checked]="selectedLocation === meetingLocations.ADRESS" 
+                    (change)="changeLocationType(meetingLocations.ADRESS)" 
+                    [ngClass]="{'disable-checkbox': adress.checked}">Adress</mat-checkbox>
+                <mat-form-field class="long-form-field" appearance="outline">
+                    <input type="text" matInput formControlName="meetingAdress" placeholder="Adres...">
+                    <mat-error *ngIf="meetingLocationFormGroup.get('meetingAdress')!.invalid && meetingLocationFormGroup.get('meetingAdress')!.touched">
+                        <span *ngIf="meetingLocationFormGroup.get('meetingAdress')!.hasError('required')">Field is required</span>
+                        <span *ngIf="meetingLocationFormGroup.get('meetingAdress')!.hasError('maxlength')">Adress name is too long</span>
+                        <span *ngIf="meetingLocationFormGroup.get('meetingAdress')!.hasError('minlength')">Adress name is too short</span>
+
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="d-flex flex-column">
+                <mat-checkbox 
+                    class="location-checkbox mb-2" 
+                    color="primary" 
+                    #online 
+                    [checked]="selectedLocation === meetingLocations.ONLINE" 
+                    (change)="changeLocationType(meetingLocations.ONLINE)" 
+                    [ngClass]="{'disable-checkbox': online.checked}">Online meeting</mat-checkbox>
+                <mat-form-field class="long-form-field" appearance="outline">
+                    <input type="text" matInput formControlName="meetingOnline" placeholder="Paste meeting link...">
+                    <mat-error *ngIf="meetingLocationFormGroup.get('meetingOnline')!.invalid && meetingLocationFormGroup.get('meetingOnline')!.touched">
+                        <span *ngIf="meetingLocationFormGroup.get('meetingOnline')!.hasError('required')">Field is required</span>
+                        <span *ngIf="meetingLocationFormGroup.get('meetingOnline')!.hasError('invalidUrl')">Meeting link is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="mb-4 py-3 px-4 d-flex flex-column agenda-container">
+            <h5 class="mb-3">Agenda</h5>
+            <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus magnam et quisquam doloremque, quidem excepturi!</p>
+            <div class="d-flex">
+                <button class="me-3 button-custom-border" type="button" mat-raised-button>Create agenda</button>
+                <button class="me-3 button-custom-border" type="button" mat-raised-button>Choose file</button>
+            </div>
+        </div>
+
+        <div class="mb-4 d-flex flex-column documents-container">
+            <h5 class="mb-2">Documents</h5>
+            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, eveniet!</p>
+            <div class="d-flex align-items-center justify-content-between p-2 mb-2 document-wrapper" *ngFor="let document of selectedDocuments; index as documentIndex">
+                <div class="d-flex align-items-center pe-3">
+                    <mat-icon class="me-3"> insert_drive_file</mat-icon>
+                    <p class="m-0">{{document.name}}</p>
+                </div>
+                <mat-icon class="clear-icon" (click)="removeAttachedDocument(documentIndex)">close</mat-icon>
+            </div>
+            <input type="file" #fileInput (change)="onFileSelected($event)" class="d-none">
+            <div class="mt-1">
+                <button class="button-custom-border" type="button" mat-raised-button (click)="fileInput.click()">Add document</button>
+            </div>
+        </div>
+    </form>
+</div>

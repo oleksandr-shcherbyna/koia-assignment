@@ -1,0 +1,27 @@
+<div class="w-100 meeting-wrapper d-flex flex-column">
+    <div class="px-5 py-3 d-flex justify-content-between align-items-center">
+        <a routerLink="">
+            <button mat-icon-button color="primary" aria-label="Back to home">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+        </a>
+        <div class="d-flex">
+            <button mat-raised-button class="me-3" (click)="saveAsDraft()">Save as draft</button>
+            <button mat-raised-button (click)="saveMeeting()">Save & Publish</button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row meeting-form-components w-100">
+        <div class="col meeting-details h-100">
+            <app-meeting-details [meetingFormGroup]="meetingFormGroup" (emitSelectedDocuments)="setUserDocuments($event)"></app-meeting-details>
+        </div>
+        <div class="col-3 meeting-specifics h-100">
+            <app-meeting-specifics [meetingFormGroup]="meetingFormGroup"></app-meeting-specifics>
+        </div>
+    </div>
+</div>
+
+
+
+
+

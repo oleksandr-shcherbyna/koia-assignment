@@ -44,7 +44,7 @@ $koia-assignment-theme: mat.define-light-theme((
     primary: $koia-assignment-primary,
     accent: $koia-assignment-accent,
     warn: $koia-assignment-warn,
-  )
+  ),
 ));
 
 @include mat.all-component-themes($koia-assignment-theme);

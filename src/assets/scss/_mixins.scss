@@ -1,0 +1,5 @@
+@mixin input-icon {
+    cursor: pointer;
+    color: $icon-light-grey;
+    transition: color 0.3s;
+}

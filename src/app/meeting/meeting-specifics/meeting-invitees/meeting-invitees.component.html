@@ -1,0 +1,39 @@
+<div class="mb-4 p-3 d-flex flex-column">
+    <h5 class="mb-3">Invitees</h5>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" fitInkBarToContent>
+        <mat-tab label="Board">
+            <div class="py-3 small-density-form-field">
+                <mat-form-field class="w-100" appearance="outline">
+                    <input type="text" matInput placeholder="Search..." class="ps-4" (input)="filterBoardMembers($event.target)">
+                    <mat-icon class="position-absolute search-bord-icon">search</mat-icon>
+                </mat-form-field>
+                <mat-checkbox 
+                    [color]="'primary'"
+                    [checked]="boardGuests.length === selectedMembers.length"
+                    #allMembers
+                    (change)="toggleAllBoardMembers(allMembers.checked)">
+                    All
+                </mat-checkbox>
+                <mat-divider class="my-2"></mat-divider>
+                <div class="d-flex flex-column" *ngFor="let guest of boardGuests">
+                    <div [ngClass]="{'hide': !checkMemberByFilter(guest)}" class="mb-3">
+                            <mat-checkbox 
+                                [checked]="checkIfMemberSelected(guest)"
+                                [color]="'primary'"
+                                (change)="toggleBoardMember(guest)">
+                                <div class="d-flex flex-column">
+                                    <p class="m-0">{{guest.guestName}}</p>
+                                    <p class="m-0 member-position">{{guest.position}}</p>
+                                </div>
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Guests">
+            <div class="py-3">
+                <p class="m-0">Guests panel works</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

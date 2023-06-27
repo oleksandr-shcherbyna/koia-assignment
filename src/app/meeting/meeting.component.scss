@@ -1,0 +1,16 @@
+@import '../../assets/scss/variable';
+
+.meeting-wrapper {
+    height: 100vh;
+}
+.meeting-form-components {
+    flex: 1;
+    margin: auto;
+    overflow: hidden;
+}
+.meeting-details, .meeting-specifics {
+    overflow-y: auto;
+}
+.meeting-specifics {
+    border-left: 1px solid $mat-divider;
+}

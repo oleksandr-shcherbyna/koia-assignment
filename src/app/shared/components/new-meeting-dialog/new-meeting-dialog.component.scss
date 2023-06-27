@@ -1,0 +1,10 @@
+@import '../../../../assets/scss/variable';
+
+.close-icon {
+    transform: scale(1.5);
+    color: $icon-light-grey;
+    transition: color 0.5s;
+}
+.close-icon:hover {
+    color: $black;
+}

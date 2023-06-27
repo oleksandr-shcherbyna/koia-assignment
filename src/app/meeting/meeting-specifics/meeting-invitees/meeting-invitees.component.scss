@@ -1,0 +1,36 @@
+@import '../../../../assets/scss/variable';
+
+.hide {
+    display: none;
+}
+.search-bord-icon {
+    left: -2%;
+}
+.member-position {
+    color: $icon-light-grey;
+    font-size: 0.8rem;
+}
+
+::ng-deep {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background: $white;
+    }
+    .small-density-form-field {
+        .mdc-text-field--outlined {
+            height: 43px !important;
+        }
+        .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix, .task-interaction-icons-wrapper {
+            padding: 10px 0;
+        }
+    }
+    .mat-mdc-tab-header {
+        transform: translateX(-24px);
+    }
+    .mat-mdc-tab-body-content {
+        overflow: hidden !important;
+    }
+    
+    .mat-mdc-tab-body-wrapper {
+        border-top: 2px solid $tabs-separator;
+    }
+}

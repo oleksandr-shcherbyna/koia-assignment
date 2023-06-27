@@ -1,0 +1,17 @@
+<div class="d-flex flex-column p-5">
+    <div class="d-flex w-100 justify-content-end mb-3">
+        <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+    </div>
+    <div class="d-flex flex-column text-center mb-5">
+        <h2 class="mb-3">This is it!</h2>
+        <h6 class="mb-4">
+            This modal dialog is simulating the process of data sending via http post method. 
+            <strong>Backend will recieve JSON object which will be looking like:</strong>
+        </h6>
+        <p class="m-0">{{newMeeting}}</p>
+    </div>
+    <div class="d-flex w-100 justify-content-center">
+        <button mat-raised-button  mat-dialog-close class="mx-2">Close dialog</button>
+        <button mat-raised-button class="mx-2" (click)="navigateToHome()">Back to "Home"</button>
+    </div>
+</div>

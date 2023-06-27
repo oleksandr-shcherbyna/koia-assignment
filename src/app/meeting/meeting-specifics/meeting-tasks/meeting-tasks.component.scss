@@ -1,0 +1,53 @@
+@import '../../../../assets/scss/variable';
+@import '../../../../assets/scss/mixins';
+
+.currently-edit {
+    left: 0;
+    transform: translateX(-125%);
+}
+.task-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+.task-icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.task-icon:hover {
+    transform: scale(1.1);
+    color: $black;
+}
+.task-interaction-field {
+    padding-right: 4rem;
+}
+.task-interaction-icons-wrapper {
+    top: 0;
+}
+.task-interaction-icon {
+    @include input-icon;
+}
+.task-interaction-icon:hover {
+    color: $black;
+}
+.task-interaction-field-wrapper {
+    height: 50px;
+}
+.hide {
+    display: none;
+}
+
+::ng-deep {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background: $white;
+    }
+    .small-density-form-field {
+        .mdc-text-field--outlined {
+            height: 43px !important;
+        }
+        .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix, .task-interaction-icons-wrapper {
+            padding: 10px 0;
+        }
+    }
+}
