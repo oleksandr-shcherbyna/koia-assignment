@@ -19,18 +19,14 @@ export class MeetingComponent implements OnInit {
     this.meetingFormGroup = this.meetingFormService.emptyMeetingFormGroup();
   }
 
-  public saveMeeting(): void {
-    if (this.meetingFormGroup.invalid) {
+  public saveMeeting(isDraft: boolean): void {
+    if (this.meetingFormGroup.invalid && !isDraft) {
       this.validateAllFormFields(this.meetingFormGroup);
       return;
     }
     const newMeeting = this.meetingFormGroup.getRawValue();
     newMeeting.userDocuments = this.getUserFormDataDocuments();
-    this.meetingService.addNewMeeting(newMeeting);
-  }
-
-  public saveAsDraft(): void {
-
+    isDraft ? this.meetingService.addNewMeeting(newMeeting) : this.meetingService.addAsDraft(newMeeting);
   }
 
   public setUserDocuments(event: File[]): void {

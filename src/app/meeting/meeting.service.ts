@@ -39,4 +39,14 @@ export class MeetingService {
     return;
     return this.httpClient.post<string>('api/meeitng/add', newMeeting);
   }
+
+  public addAsDraft(newMeeting: MeetingDto): Observable<string> | void {
+    this.dialog.open(NewMeetingDialogComponent, { // Simulation of sending request to backend
+      data: { newMeeting: newMeeting },
+      width: '500px',
+      autoFocus: false
+    });
+    return;
+    return this.httpClient.post<string>('api/meeitng/add/draft', newMeeting);
+  }
 }
