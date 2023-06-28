@@ -3,6 +3,7 @@
 <p align="center">
   <img src="src/assets/images/other/KOIA-logo.png" alt="koia-logo" width="120px" height="120px"/>
   <br>
+  <br>
   <a href="https://angular.io/"><img src="https://img.shields.io/badge/Angular%20CLI-v.16.1.1-red.svg"/></a>&nbsp;
   <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/Node-v.18.16.1-brightgreen.svg"/></a>&nbsp;
   <a href="https://www.npmjs.com/package/npm"><img src="https://img.shields.io/badge/npm-v.9.7.2-green.svg"/></a>
@@ -44,8 +45,8 @@ npm install -g @angular/cli
 ### Clone the repository
 
 ```shell
-git clone https://github.com/oleksandr-shcherbyna/weather-forecast.git
-cd weather-forecast
+git clone https://github.com/oleksandr-shcherbyna/koia-assignment.git
+cd koia-assignment
 ```
 
 ### Install npm packages
