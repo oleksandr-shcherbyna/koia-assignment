@@ -46,7 +46,7 @@ npm install -g @angular/cli
 
 ```shell
 git clone https://github.com/oleksandr-shcherbyna/koia-assignment.git
-cd weather-forecast
+cd koia-assignment
 ```
 
 ### Install npm packages
