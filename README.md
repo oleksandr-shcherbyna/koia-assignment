@@ -1,7 +1,7 @@
 <h1 align="center" id="readme-top">KOIA's test assignment</h1>
 
 <p align="center">
-  <img src="src/assets/images/other/KOIA-logo.png" alt="angular-logo" width="120px" height="120px"/>
+  <img src="src/assets/images/other/KOIA-logo.png" alt="koia-logo" width="120px" height="120px"/>
   <br>
   <a href="https://angular.io/"><img src="https://img.shields.io/badge/Angular%20CLI-v.16.1.1-red.svg"/></a>&nbsp;
   <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/Node-v.18.16.1-brightgreen.svg"/></a>&nbsp;
@@ -14,6 +14,7 @@
   <ol>
     <li><a href="#about-application">About</a></li>
     <li><a href="#setup">Setup</a></li>
+    <li><a href="#technologies-and-libraries">Technologies</a></li>
   </ol>
 </details>
 
