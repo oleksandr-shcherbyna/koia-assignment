@@ -55,9 +55,7 @@ export class MeetingDetailsComponent extends Unsubscribe implements OnInit {
 
   public clearFieldByClick(event: MouseEvent, fieldName: string): void {
     event.stopPropagation();
-    this.meetingFormGroup.get(fieldName)!.setValue(null);
-    this.meetingFormGroup.get(fieldName)!.markAsPristine();
-    this.meetingFormGroup.get(fieldName)!.markAsUntouched();
+    this.meetingFormGroup.get(fieldName)!.reset();
   }
 
   public changeLocationType(locationType: string): void {
@@ -75,11 +73,7 @@ export class MeetingDetailsComponent extends Unsubscribe implements OnInit {
   private clearLocationFormFields(formControl: AbstractControl, validators: ValidatorFn[] | null, shouldDisable: boolean): void {
     shouldDisable ? formControl.disable() : formControl.enable();
     formControl.setValidators(validators);
-    formControl.setErrors(null);
-    formControl.setValue(null);
-    formControl.markAsPristine();
-    formControl.markAsUntouched();
-    formControl.updateValueAndValidity(); 
+    formControl.reset();
   }
 
   public onFileSelected(event: any): void {
