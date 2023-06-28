@@ -45,7 +45,7 @@ npm install -g @angular/cli
 ### Clone the repository
 
 ```shell
-git clone https://github.com/oleksandr-shcherbyna/weather-forecast.git
+git clone https://github.com/oleksandr-shcherbyna/weather-forecast.git](https://github.com/oleksandr-shcherbyna/koia-assignment.git
 cd weather-forecast
 ```
 
